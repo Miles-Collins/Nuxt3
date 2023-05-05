@@ -1,5 +1,6 @@
 <script setup>
 import { housesService, state } from "~/Services/HousesService";
+import HouseForm from "~/components/Forms/HouseForm.vue";
 import { House } from "~/models/House";
 
 const houses = await housesService.getHouses()
@@ -19,7 +20,6 @@ const test = computed(() => state.houses.value.map(h => House(h)))
 <template>
 
 <NavBar/>
-<HouseDeletor />
 
 <div class="container-fluid">
   <div v-if="houses" class="row">
@@ -28,7 +28,7 @@ const test = computed(() => state.houses.value.map(h => House(h)))
         <div class="col-12">
           <NuxtLink :to="`/homes/${h.id}`">
           <img class="cardSize" :src="h.imgUrl" alt="">
-        </NuxtLink>
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -39,6 +39,7 @@ const test = computed(() => state.houses.value.map(h => House(h)))
     </div>
   </div>
 </div>
+
 
 </template>
 

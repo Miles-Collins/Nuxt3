@@ -1,5 +1,9 @@
 <script setup>
+import HouseForm from "~/components/Forms/HouseForm.vue";
 
+const path = useRoute().path
+
+console.log('Page Route', path);
 </script>
 
 <template>
@@ -13,9 +17,16 @@
       <div class="col-2"> <NuxtLink to="/cars"><button class="btn btn-outline">Cars</button></NuxtLink></div>
       <div class="col-2"> <NuxtLink to="/homes"><button class="btn">Houses</button></NuxtLink></div>
       <div class="col-2"> <NuxtLink to="/jobs"><button class="btn">Jobs</button></NuxtLink></div>
+      <div v-if="path.includes('/homes')" class="col-2 offset-2 text-end"><button class="btn" data-bs-target="#houseModal" data-bs-toggle="modal">Sell House</button></div>
+      <div v-if="path == '/cars'" class="col-2 offset-2"><button class="btn" data-bs-target="#carModal" data-bs-toggle="modal">Sell Car</button></div>
     </div>
   </nav>
 </div>
+
+  <Modal id="houseModal">
+    <HouseForm />
+  </Modal>
+
 
 </template>
 
