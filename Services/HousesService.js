@@ -1,11 +1,9 @@
 import { House } from "~/models/House"
 
 export const state = () =>({
-    houses: null,
+    houses: [],
     house: null
 })
-
-
 
 
 class HousesService {
@@ -33,6 +31,25 @@ state.house = house
 state.house.value = new House(state.house.value)
 console.log(state.house.value)
 return house
+}
+
+async createHouse(houseBody) {
+  const {data : house} = await useFetch('https://bcw-sandbox.herokuapp.com/api/houses', {
+    method: "post",
+    body: houseBody
+  })
+  console.log('POST', house)
+  console.log('STATE.HOUSES', state.houses)
+  state.houses.value.push(new House(house.value))
+  console.log('STATE.HOUSES.VALUE', state.houses.value)
+}
+
+
+async deleteHouse(houseId) {
+  const {data: house} = await useFetch(`https://bcw-sandbox.herokuapp.com/api/houses/${houseId}`, {
+    method: "delete"
+  })
+  console.log('DELETING HOUSE', house)
 }
 }
 

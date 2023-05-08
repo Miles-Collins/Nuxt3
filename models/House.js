@@ -8,6 +8,7 @@ export class House{
     this.year = data.year
     this.price = data.price
     this.description = data.description
+    this.creatorId = data.creatorId
     this.createdAt = data.createdAt
     this.updatedAt = data.updatedAt
   }
