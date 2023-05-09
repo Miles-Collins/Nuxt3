@@ -2,6 +2,10 @@
 
 const editable = ref({})
 
+function checkEditable() {
+    console.log('EDITABLE', editable)
+}
+
 </script>
 
 <template>
@@ -13,13 +17,13 @@ const editable = ref({})
                     <div class="form-items">
                         <h3>Sell Home</h3>
                         <p>Fill in the correct data below.</p>
-                        <form>
+                        <form @submit.prevent="checkEditable()">
                           <div class="row">
                             <div class="col-md-4">
                               <label class="form-label" for="bedrooms">Bedrooms:</label>
                                 <select id="bedrooms" v-model="editable.bedrooms" class="form-select m-0" required>
                                       <option selected disabled value="">Bedrooms</option>
-                                      <option  value=1>1</option>
+                                      <option value=1>1</option>
                                       <option value="2">2</option>
                                       <option value="3">3</option>
                                       <option value="3">4</option>
@@ -33,7 +37,7 @@ const editable = ref({})
                               <label class="form-label" for="bathrooms">Bathrooms:</label>
                                 <select id="bathrooms" v-model="editable.bathrooms" class="form-select m-0" required>
                                       <option selected disabled value="">Bathrooms</option>
-                                      <option  value=1>1</option>
+                                      <option value=1>1</option>
                                       <option value="2">2</option>
                                       <option value="3">3</option>
                                       <option value="3">4</option>
@@ -59,8 +63,6 @@ const editable = ref({})
                            <div class="col-md-6 mt-2">
                             <label class="form-label" for="houseImage">House Image:</label>
                               <input v-model="editable.imgUrl" class="form-control m-0" type="text" name="houseImage" placeholder="House Image..." required>
-                               <div class="valid-feedback"> field is valid!</div>
-                               <div class="invalid-feedback">Password field cannot be blank!</div>
                            </div>
 
                            <div class="col-md-3 mt-2">
@@ -73,31 +75,13 @@ const editable = ref({})
                             <input v-model="editable.price" class="form-control m-0" name="price"  type="number" placeholder="Price...">
                            </div>
 
-
-                           <div class="col-md-12 mt-3">
-                            <label class="mb-3 mr-1" for="gender">Gender: </label>
-
-                            <input type="radio" class="btn-check" name="gender" id="male" autocomplete="off" required>
-                            <label class="btn btn-sm btn-outline-secondary" for="male">Male</label>
-
-                            <input type="radio" class="btn-check" name="gender" id="female" autocomplete="off" required>
-                            <label class="btn btn-sm btn-outline-secondary" for="female">Female</label>
-
-                            <input type="radio" class="btn-check" name="gender" id="secret" autocomplete="off" required>
-                            <label class="btn btn-sm btn-outline-secondary" for="secret">Secret</label>
-                               <div class="valid-feedback mv-up">You selected a gender!</div>
-                                <div class="invalid-feedback mv-up">Please select a gender!</div>
-                            </div>
-
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                          <label class="form-check-label">I confirm that all data are correct</label>
-                         <div class="invalid-feedback">Please confirm that the entered data are all correct!</div>
-                        </div>
-                  
+                           <div class="col-12 mt-2">
+                            <label class="form-label" for="">House Description:</label>
+                            <textarea v-model="editable.description" class="form-control m-0" name="description" id="description" cols="30" rows="10"></textarea>
+                           </div>
 
                             <div class="form-button mt-3">
-                                <button id="submit" type="submit" class="btn btn-primary">Register</button>
+                                <button id="submit" type="submit" class="btn btn-primary">Sell</button>
                             </div>
                             </div>
                         </form>
@@ -135,7 +119,7 @@ html, body {
       justify-content: center;
       align-items: center;
       text-align: center;
-      min-height: 100vh;
+      min-height: 75vh;
 }
 
 .form-holder .form-content {
