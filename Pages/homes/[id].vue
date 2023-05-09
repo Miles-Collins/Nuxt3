@@ -6,6 +6,10 @@ const {id} = useRoute().params
 await housesService.getHouse(id)
 const house = computed(() => state.house.value)
 
+async function deleteHouse() {
+  await housesService.deleteHouse(id)
+}
+
 </script>
 
 <template>
@@ -13,6 +17,13 @@ const house = computed(() => state.house.value)
   <NavBar />
 
   <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        
+        <button @click="deleteHouse" class="btn btn-outline-dark">DELETE!!!!!!!!!!!!</button>
+        
+      </div>
+    </div>
     <div v-if="house"  class="row">
       <div class="col-12 col-md-6 mt-5">
         <img :src="house.imgUrl" alt="">
@@ -20,7 +31,7 @@ const house = computed(() => state.house.value)
       <div class="col-12 col-md-6 mt-5">
         <div class="row">
           <div class="col-12">
-            <p class="fs-2">This {{ house.levels }} story house was built in {{ house.year }}. It's large space holds {{ house.bedrooms }} bedrooms, and {{ house.bathrooms }} baths. Currently the home owners are looking to get ${{ house.price }} out of it, but are willing to negotiate. </p>
+            <p class="fs-6">{{house.description}} </p>
           </div>
         </div>
       </div>

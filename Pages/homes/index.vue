@@ -21,36 +21,25 @@ const test = computed(() => state.houses.value.map(h => House(h)))
 
 <NavBar/>
 
-<div class="container-fluid">
-  <div v-if="houses" class="row">
-    <div v-for="h in houses" :key="h.id" class="col-5 col-md-3 houseCard">
-      <div class="row">
-        <div class="col-12">
+<div class="container mx-auto ">
+    <div v-for="h in houses" :key="h.id" class="masonry justify-content-center">
           <NuxtLink :to="`/homes/${h.id}`">
-          <img class="cardSize" :src="h.imgUrl" alt="">
+          <img class="items img-fluid mt-2" :src="h.imgUrl" alt="">
           </NuxtLink>
-        </div>
-      </div>
     </div>
   </div>
-  <div v-else class="row text-center">
-    <div class="col-12">
-      <h1>Loading...</h1>
-    </div>
-  </div>
-</div>
 
 
 </template>
 
 <style scoped>
 
-.cardSize {
+/* .cardSize {
   width: 100%;
   height: 23dvh;
   border-top-left-radius: 2%;
   border-top-right-radius: 2%;
-}
+} */
 
 p{
   margin: 0;
@@ -67,8 +56,52 @@ p{
   border: 1px rgba(0, 0, 0, 0.185) solid;
 }
 
-img{
-  object-fit: cover;
+.masonry { 
+  display: flex;
+  flex-flow: column wrap;
+  max-height: 355px;
+  /* margin-left: -8px; Adjustment for the gutter */
+  width: 100%;
+}
+
+img {
+   max-height: 350px;
+   width: 100%;
+   border-radius: 5px;
+}
+
+.container {
+  gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: masonry;
+  column-count: 4;
+}
+
+/* Masonry on large screens */
+@media only screen and (min-width: 1024px) {
+  .masonry {
+    column-count: 4;
+  }
+}
+
+/* Masonry on medium-sized screens */
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+  .masonry {
+    column-count: 3;
+  }
+   .container {
+    column-count: 3;
+  }
+}
+
+/* Masonry on small screens */
+@media only screen and (max-width: 767px) and (min-width: 240px) {
+  .masonry {
+    column-count: 2;
+  }
+  .container {
+    column-count: 2;
+  }
 }
 
 </style>
