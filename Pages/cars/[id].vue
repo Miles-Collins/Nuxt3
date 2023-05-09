@@ -23,7 +23,7 @@ async function deleteCar() {
 
 <template>
 
-  <div class="container-fluid">
+  <div class="container-fluid carCard">
     <div class="row">
       <div class="col-2 mt-2">
         <NuxtLink to="/cars"><button class="btn">Go Back</button></NuxtLink>

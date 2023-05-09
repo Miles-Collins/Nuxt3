@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import NavBar from "~/components/NavBar.vue";
 
 
@@ -10,8 +10,7 @@ const test = useState('counter', () => Math.round(Math.random() * 1000))
 
   onMounted(() => {
   })
-
-  let a : string = "Miles"
+  
 </script>
 
 <template>

@@ -23,9 +23,14 @@ const test = computed(() => state.houses.value.map(h => House(h)))
 
 <div class="container mx-auto ">
     <div v-for="h in houses" :key="h.id" class="masonry justify-content-center">
+      <div class="houseCard">
           <NuxtLink :to="`/homes/${h.id}`">
           <img class="items img-fluid mt-2" :src="h.imgUrl" alt="">
           </NuxtLink>
+          <div class="houseDetails">
+            <span>Price: ${{h.price}}</span>
+          </div>
+      </div>
     </div>
   </div>
 
@@ -102,6 +107,55 @@ img {
   .container {
     column-count: 2;
   }
+}
+
+
+/* HOUSE CARD */
+
+.houseCard {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.houseCard img {
+  width: 100%;
+  height: auto;
+  transition: opacity 0.5s ease-in-out;
+}
+.houseCard:hover img{
+  opacity: .25;
+}
+.houseCard .carText {
+  opacity: 0;
+  position: absolute;
+}
+
+.houseCard .carText:hover {
+  opacity: 1;
+}
+
+.houseCard .houseDetails {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.792);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.houseCard:hover .houseDetails {
+  opacity: 1;
+}
+
+.houseCard .houseDetails span {
+  display: block;
 }
 
 </style>
