@@ -3,6 +3,10 @@ import { housesService, state } from "~/Services/HousesService";
 import HouseForm from "~/components/Forms/HouseForm.vue";
 import { House } from "~/models/House";
 
+definePageMeta({
+  layout: "house",
+})
+
 const houses = await housesService.getHouses()
 const test = computed(() => state.houses.value.map(h => House(h)))
 // async function getHouses() {
@@ -18,8 +22,6 @@ const test = computed(() => state.houses.value.map(h => House(h)))
 </script>
 
 <template>
-
-<NavBar/>
 
 <div class="container mx-auto ">
     <div v-for="h in houses" :key="h.id" class="masonry justify-content-center">
@@ -102,6 +104,8 @@ img {
   .container {
     column-count: 2;
   }
+
+
 }
 
 </style>

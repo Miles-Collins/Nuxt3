@@ -32,4 +32,10 @@ console.log('Page Route', path);
 
 <style scoped>
 
+  button:hover {
+    background-color: rgba(0, 0, 0, 0.491);
+    opacity: .75;
+    color: white;
+  }
+
 </style>
