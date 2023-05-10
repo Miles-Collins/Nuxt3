@@ -8,22 +8,21 @@ const {data : results} = await useFetch('https://bcw-sandbox.herokuapp.com/api/j
 
 const jobs = results.value.map(j => new Job(j))
 
+console.log(jobs);
+
 </script>
 
 <template>
-<NavBar/>
-
-{{ jobs }}
 
 <div v-if="jobs" class="container"> 
  
   
-  <div v-for="c in jobs" :key="c.id" class="masonry rounded mt-2">
-    <div class="carCard">
-    <NuxtLink :to="`/cars/${c.id}`"><img class="items" :src="c.imgUrl" alt=""></NuxtLink>
-    <div class="details">
-    <span>{{c.company}} {{ c.jobTitle }}</span>
-    <span>Pay: {{ c.rate }}/hr</span>
+  <div v-for="j in jobs" :key="j.id" class="masonry rounded mt-2">
+    <div class="jobCard">
+    <NuxtLink :to="`/jobs/${j.id}`"><img class="items" :src="j.image" alt=""></NuxtLink>
+    <div class="jobDetails">
+    <span>{{j.company}} {{ j.jobTitle }}</span>
+    <span>Pay: {{ j.rate }}/hr</span>
     </div>
     </div>
   </div>
@@ -38,12 +37,12 @@ p{
   padding: 0;
 }
 
-.houseCard:hover{
+.jobCard:hover{
   box-shadow: 0px 0px 8px black;
   cursor: pointer;
 }
 
-.houseCard {
+.jobCard {
   padding: 0;
   border: 1px rgba(0, 0, 0, 0.185) solid;
   border-radius: 5px;
@@ -100,31 +99,32 @@ img {
 
 /* HOUSE CARD */
 
-.houseCard {
+.jobCard {
   /* border: 1px solid rgba(0, 0, 0, 0.3); */
   position: relative;
   overflow: hidden;
   display: inline-block;
 }
 
-.houseCard img {
+.jobCard img {
+  object-fit: cover;
   width: 100%;
   height: auto;
   transition: opacity 0.5s ease-in-out;
 }
-.houseCard:hover img{
+.jobCard:hover img{
   opacity: .25;
 }
-.houseCard .carText {
+.jobCard .carText {
   opacity: 0;
   position: absolute;
 }
 
-.houseCard .carText:hover {
+.jobCard .carText:hover {
   opacity: 1;
 }
 
-.houseCard .houseDetails {
+.jobCard .jobDetails {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -139,11 +139,11 @@ img {
   transition: opacity 0.5s ease-in-out;
 }
 
-.houseCard:hover .houseDetails {
+.jobCard:hover .jobDetails {
   opacity: 1;
 }
 
-.houseCard .houseDetails span {
+.jobCard .jobDetails span {
   display: block;
 }
 

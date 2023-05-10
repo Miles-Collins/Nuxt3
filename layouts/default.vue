@@ -5,8 +5,8 @@
 <template>
 
 <div class="defaultLayout">
-  <p>Default Layout</p>
-  <slot />s
+  <NavBar />
+  <slot />
 </div>
 
 </template>
