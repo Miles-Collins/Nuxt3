@@ -12,7 +12,7 @@ definePageMeta({
 
 <template>
 
-<div class="container">
+<div class="container"> 
  
   <div v-for="c in cars" :key="c.id" class="masonry rounded mt-2">
     <div class="carCard">

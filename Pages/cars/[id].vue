@@ -59,7 +59,8 @@ async function deleteCar() {
 }
 
 img {
-object-fit: contain;
+object-fit: cover;
+box-shadow: 0px 0px 10px black;
 }
 
 </style>

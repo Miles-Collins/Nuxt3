@@ -22,10 +22,10 @@ const test = computed(() => state.houses.value.map(h => House(h)))
 <NavBar/>
 
 <div class="container mx-auto ">
-    <div v-for="h in houses" :key="h.id" class="masonry justify-content-center">
+    <div v-for="h in houses" :key="h.id" class="masonry mt-2 justify-content-center">
       <div class="houseCard">
           <NuxtLink :to="`/homes/${h.id}`">
-          <img class="items img-fluid mt-2" :src="h.imgUrl" alt="">
+          <img class="items img-fluid" :src="h.imgUrl" alt="">
           </NuxtLink>
           <div class="houseDetails">
             <span>Price: ${{h.price}}</span>
@@ -59,6 +59,7 @@ p{
 .houseCard {
   padding: 0;
   border: 1px rgba(0, 0, 0, 0.185) solid;
+  border-radius: 5px;
 }
 
 .masonry { 
@@ -113,7 +114,7 @@ img {
 /* HOUSE CARD */
 
 .houseCard {
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  /* border: 1px solid rgba(0, 0, 0, 0.3); */
   position: relative;
   overflow: hidden;
   display: inline-block;
@@ -144,6 +145,7 @@ img {
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.792);
   color: white;
+  font-family:monospace;
   font-size: 18px;
   font-weight: bold;
   opacity: 0;
