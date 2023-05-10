@@ -1,9 +1,11 @@
-<script setup>
+<script setup lang="ts">
 import HouseForm from "~/components/Forms/HouseForm.vue";
 
 const path = useRoute().path
 
 console.log('Page Route', path);
+
+const a : string = 'Miles'
 </script>
 
 <template>

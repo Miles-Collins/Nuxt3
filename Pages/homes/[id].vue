@@ -26,7 +26,7 @@ async function deleteHouse() {
     </div>
     <div v-if="house"  class="row">
       <div class="col-12 col-md-6 mt-5">
-        <img :src="house.imgUrl" alt="">
+        <img class="rounded" :src="house.imgUrl" alt="">
       </div>
       <div class="col-12 col-md-6 mt-5">
         <div class="row">
@@ -51,6 +51,8 @@ async function deleteHouse() {
 img {
   width: 100%;
   height: 75dvh;
+  object-fit: cover;
+  box-shadow: 0px 0px 10px black;
 }
 
 .maxHeight {

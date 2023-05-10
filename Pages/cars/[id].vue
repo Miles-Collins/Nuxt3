@@ -23,7 +23,7 @@ async function deleteCar() {
 
 <template>
 
-  <div class="container-fluid">
+  <div class="container-fluid carCard">
     <div class="row">
       <div class="col-2 mt-2">
         <NuxtLink to="/cars"><button class="btn">Go Back</button></NuxtLink>
@@ -59,7 +59,8 @@ async function deleteCar() {
 }
 
 img {
-object-fit: contain;
+object-fit: cover;
+box-shadow: 0px 0px 10px black;
 }
 
 </style>

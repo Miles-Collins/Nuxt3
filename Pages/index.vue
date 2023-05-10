@@ -10,8 +10,7 @@ const test = useState('counter', () => Math.round(Math.random() * 1000))
 
   onMounted(() => {
   })
-
-  let a : string = "Miles"
+  
 </script>
 
 <template>
