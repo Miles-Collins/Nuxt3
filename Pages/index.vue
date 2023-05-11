@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import NavBar from "~/components/NavBar.vue";
 
 
 const test = useState('counter', () => Math.round(Math.random() * 1000))
@@ -15,7 +14,6 @@ const test = useState('counter', () => Math.round(Math.random() * 1000))
 
 <template>
 
-<NavBar />
 
 <div class="container-fluid viewHeight">
   <div class="row align-items-start">

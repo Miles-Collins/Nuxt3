@@ -51,6 +51,16 @@ async deleteHouse(houseId) {
   })
   console.log('DELETING HOUSE', house)
 }
+
+async editHouse(houseBody, houseId) {
+  const {data: house} = await useFetch(`https://bcw-sandbox.herokuapp.com/api/houses/${houseId}`, {
+    method: "put",
+    body: houseBody
+  })
+  let editedHouse = new House(house.value)
+  state.house.value = new House(house.value)
+  console.log('EDITING HOUSE', editedHouse)
+}
 }
 
 export const housesService = new HousesService()

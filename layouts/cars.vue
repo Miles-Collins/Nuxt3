@@ -8,6 +8,8 @@
   <NavBar />
 
   <slot />
+
+
 </div>
 
 </template>

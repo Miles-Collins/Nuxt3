@@ -1,6 +1,7 @@
 <script setup>
 import { state } from "~/Services/HousesService";
 import { housesService } from "~/Services/HousesService";
+import HouseEditForm from "~/components/Forms/HouseEditForm.vue";
 
 const {id} = useRoute().params
 await housesService.getHouse(id)
@@ -13,14 +14,12 @@ async function deleteHouse() {
 </script>
 
 <template>
-
-  <NavBar />
-
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
         
-        <button @click="deleteHouse" class="btn btn-outline-dark">DELETE!!!!!!!!!!!!</button>
+        <button @click="deleteHouse" class="btn btn-outline-dark">Delete House</button>
+        <button data-bs-target="#editHouse" data-bs-toggle="modal" class="btn btn-outline-dark">Edit House</button>
         
       </div>
     </div>
@@ -42,6 +41,10 @@ async function deleteHouse() {
       </div>
     </div>
   </div>
+
+  <Modal id="editHouse">
+    <HouseEditForm />
+  </Modal>
 
 
 </template>

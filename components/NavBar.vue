@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import HouseForm from "~/components/Forms/HouseForm.vue";
+import HouseCreateForm from "./Forms/HouseCreateForm.vue";
 
 const path = useRoute().path
 
@@ -26,7 +26,7 @@ const a : string = 'Miles'
 </div>
 
   <Modal id="houseModal">
-    <HouseForm />
+    <HouseCreateForm />
   </Modal>
 
 
